@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "iot_type=calllogger"
+exit 0
