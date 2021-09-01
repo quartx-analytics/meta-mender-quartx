@@ -4,6 +4,8 @@ SRC_URI_append = " file://mender-inventory-iot-type file://docker-compose file:/
 PACKAGECONFIG_append = " directory single-file script"
 IMAGE_INSTALL_append = " mender-connect"
 
+FILES_${PN} = "${datadir}/mender/modules/v3/docker-compose"
+
 do_install_append() {
     install -d ${D}/${datadir}/mender/inventory
     install -d ${D}/${datadir}/mender/modules/v3
