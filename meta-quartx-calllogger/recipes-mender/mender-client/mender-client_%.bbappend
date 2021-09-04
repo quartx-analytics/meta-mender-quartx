@@ -1,8 +1,8 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 SRC_URI_append = " \
-    git://github.com/quartx-analytics/mender-docker-compose.git;protocol=https;branch=main;destsuffix=dc_module;rev=3bab3187d20090d1a1b9b1c52431b08d4eae7b57 \
+    https://raw.githubusercontent.com/quartx-analytics/mender-docker-compose/main/docker-compose \
 "
-SRCREV = "${AUTOREV}"
+
 # Add docker-compose module path to included files
 FILES_${PN} += "${datadir}/mender/modules/v3/docker-compose"
 
@@ -16,5 +16,5 @@ do_install_append() {
 
     # Install docker update module
     install -d ${D}/${datadir}/mender/modules/v3
-    install -m 755 ${WORKDIR}/dc_module/docker-compose ${D}/${datadir}/mender/modules/v3/docker-compose
+    install -m 755 ${WORKDIR}/docker-compose ${D}/${datadir}/mender/modules/v3/docker-compose
 }
