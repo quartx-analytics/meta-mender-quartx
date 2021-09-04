@@ -2,7 +2,8 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 SRC_URI_append = " \
     https://raw.githubusercontent.com/quartx-analytics/mender-docker-compose/main/docker-compose \
 "
-SRCREV = "${AUTOREV}"
+SRC_URI[sha256sum] = "0f4bb2c5837e1d37ce154a3e4fd8798948d5aff1e7dbcc351877daf644456083"
+
 # Add docker-compose module path to included files
 FILES_${PN} += "${datadir}/mender/modules/v3/docker-compose"
 
