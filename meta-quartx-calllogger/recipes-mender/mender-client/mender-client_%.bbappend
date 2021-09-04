@@ -7,7 +7,7 @@ SRC_URI_append = " \
 FILES_${PN} += "${datadir}/mender/modules/v3/docker-compose"
 
 # Upload module depends on "jq"
-RDEPENDS_${PN} += "jq docker-ce docker-compose"
+RDEPENDS_${PN} += "jq"
 
 do_install_append() {
     # Install calllogger inventory
