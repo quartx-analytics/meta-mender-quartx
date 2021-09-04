@@ -21,3 +21,7 @@ do_install_append() {
     install -d ${D}/${datadir}/mender/modules/v3
     install -m 755 ${WORKDIR}/dc_module/docker-compose ${D}/${datadir}/mender/modules/v3/docker-compose
 }
+
+# Add Docker support
+DISTRO_FEATURES_append = " virtualization"
+IMAGE_INSTALL_append = " docker-ce docker-compose"
