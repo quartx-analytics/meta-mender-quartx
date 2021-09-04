@@ -10,7 +10,7 @@ SRCREV = ${AUTOREV}
 FILES_${PN} += "${datadir}/mender/modules/v3/docker-compose"
 
 # Upload module depends on "jq"
-RDEPENDS_${PN} += "jq"
+RDEPENDS_${PN} += "jq docker-ce docker-compose"
 
 do_install_append() {
     # Install calllogger inventory
