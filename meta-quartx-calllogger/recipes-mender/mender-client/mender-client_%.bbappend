@@ -7,6 +7,7 @@ SRC_URI[sha256sum] = "8f39103220be6fbf122fe91a61a1821938634a325505ed0f16bbf2282b
 
 # Add docker-compose module path to included files
 FILES_${PN} += "${datadir}/mender/modules/v3/docker-compose"
+FILES_${PN} += "${D}/var/lib/docker"
 
 # Upload module depends on "jq"
 RDEPENDS_${PN} += "jq docker-ce python3-docker-compose"
