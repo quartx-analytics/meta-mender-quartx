@@ -7,4 +7,4 @@ SRC_URI_append = " \
 PACKAGECONFIG_append = " modules"
 
 # Mender polling intervals
-MENDER_UPDATE_POLL_INTERVAL_SECONDS = "70"
+MENDER_UPDATE_POLL_INTERVAL_SECONDS = "60"
