@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "0f4bb2c5837e1d37ce154a3e4fd8798948d5aff1e7dbcc351877daf644
 FILES_${PN} += "${datadir}/mender/modules/v3/docker-compose"
 
 # Upload module depends on "jq"
-RDEPENDS_${PN} += "jq"
+RDEPENDS_${PN} += "jq docker-ce python3-docker-compose"
 
 do_install_append() {
     # Install calllogger inventory
