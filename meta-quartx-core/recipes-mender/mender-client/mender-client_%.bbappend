@@ -5,3 +5,6 @@ SRC_URI_append = " \
 
 # Add standard upload modules
 PACKAGECONFIG_append = " modules"
+
+# Mender polling intervals
+MENDER_UPDATE_POLL_INTERVAL_SECONDS = "70"
