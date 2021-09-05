@@ -19,4 +19,8 @@ do_install_append() {
     # Install docker update module
     install -d ${D}/${datadir}/mender/modules/v3
     install -m 755 ${WORKDIR}/docker-compose ${D}/${datadir}/mender/modules/v3/docker-compose
+
+    # Move docker data directory to persistent storage
+    mkdir -p ${D}/data/docker
+    ln -s /data/docker ${D}/var/lib/docker
 }
