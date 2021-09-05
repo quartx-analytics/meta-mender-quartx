@@ -1,4 +1,0 @@
-# Better defaults for storage size
-MENDER_STORAGE_TOTAL_SIZE_MB = "2048"
-MENDER_BOOT_PART_SIZE_MB = "40"
-MENDER_DATA_PART_SIZE_MB = "128"
