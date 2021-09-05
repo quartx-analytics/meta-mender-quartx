@@ -3,7 +3,7 @@ SRC_URI_append = " \
     https://raw.githubusercontent.com/quartx-analytics/mender-docker-compose/main/docker-compose \
     file://mender-inventory-iot-type \
 "
-SRC_URI[sha256sum] = "0f4bb2c5837e1d37ce154a3e4fd8798948d5aff1e7dbcc351877daf644456083"
+SRC_URI[sha256sum] = "963321fdf97307ee379406fe12160688fe90eb594639115be5b8b7d26a41598a"
 
 # Add docker-compose module path to included files
 FILES_${PN} += "${datadir}/mender/modules/v3/docker-compose"
