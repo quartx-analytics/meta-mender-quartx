@@ -29,7 +29,7 @@ if [ -z "${app}" ]; then
 
     printf "Supported apps are:\n"
     printf '%s\n' "${apps[@]}"
-    return 1
+    exit 1
 fi
 
 script_dir=$(dirname "$this_script")
