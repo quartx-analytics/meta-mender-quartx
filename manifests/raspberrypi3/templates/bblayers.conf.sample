@@ -18,5 +18,5 @@ BBLAYERS ?= " \
   ${TOPDIR}/../layers/meta-raspberrypi \
   ${TOPDIR}/../layers/meta-mender/meta-mender-core \
   ${TOPDIR}/../layers/meta-mender/meta-mender-raspberrypi \
-  ${TOPDIR}/../layers/meta-mender/meta-quartx/meta-quartx-core \
+  ${TOPDIR}/../layers/meta-quartx/meta-quartx-core \
 "
