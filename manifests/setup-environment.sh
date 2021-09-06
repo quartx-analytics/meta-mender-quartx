@@ -24,7 +24,7 @@ do
 done
 
 if [ -z "${app}" ]; then
-    echo "Sorry, *$app* is not a valid app name"
+    echo "Sorry, *$1* is not a valid app name"
     echo ""
 
     printf "Supported apps are:\n"
