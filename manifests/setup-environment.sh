@@ -56,13 +56,14 @@ target_templates=${quartx_dir}/manifests/${target}/templates
 # Only append conf if not marked complete
 if [ ! -f "${build_dir}/conf/append_complete" ]; then
     # Ask user for mender tenant token
+    echo ''
     echo 'To get your tenant token:'
     echo '   - log in to https://hosted.mender.io'
     echo '   - click your email at the top right and then "My organization"'
     echo '   - press the "COPY TO CLIPBOARD"'
     echo '   - assign content of clipboard to MENDER_TENANT_TOKEN'
     echo ''
-    echo 'Please specify your mender tenant token:'
+    echo -n 'Please specify your mender tenant token: '
     read -r token
 
     if [ -z "$token" ] ;then
@@ -73,7 +74,7 @@ if [ ! -f "${build_dir}/conf/append_complete" ]; then
     # Common conf
     # shellcheck disable=SC2129
     cat "${quartx_dir}/manifests/common/conf.append" >> "${build_dir}/conf/local.conf"
-    echo -n "MENDER_TENANT_TOKEN = ${token}" >> "${build_dir}/conf/local.conf"
+    echo -n "MENDER_TENANT_TOKEN = \"${token}\"" >> "${build_dir}/conf/local.conf"
 
     # Board specific conf
     cat "${target_templates}/local.conf.append" >> "${build_dir}/conf/local.conf"
