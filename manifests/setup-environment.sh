@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh
 
 # Inspired by "probe" in oe-init-build-env
 if [ -n "$BASH_SOURCE" ]; then
@@ -72,16 +72,14 @@ if [ ! -f ${build_dir}/conf/append_complete ]; then
     fi
 
     # Common conf
-    cat ${quartx_dir}/manifests/common/conf.append >> ${build_dir}/conf/local.conf
-    cat <<EOF > ${build_dir}/conf/local.conf
-    MENDER_TENANT_TOKEN = "${token}"
-    EOF
+    cat "${quartx_dir}/manifests/common/conf.append" >> "${build_dir}/conf/local.conf"
+    echo "MENDER_TENANT_TOKEN = ${token}" >> "${build_dir}/conf/local.conf"
 
     # Board specific conf
-    cat ${target_templates}/local.conf.append >> ${build_dir}/conf/local.conf
+    cat "${target_templates}/local.conf.append" >> "${build_dir}/conf/local.conf"
 
     # Mark complete
-    touch ${build_dir}/conf/append_complete
+    touch "${build_dir}/conf/append_complete"
 fi
 
 case $app in
