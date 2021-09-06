@@ -16,7 +16,7 @@ $ repo sync
 
 2. Setup environment:
 ```shell
-$ sh setup-environment
+$ source setup-environment calllogger
 ```
 
 3. Build:
