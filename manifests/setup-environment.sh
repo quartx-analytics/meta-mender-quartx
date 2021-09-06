@@ -15,9 +15,7 @@ quartx_dir=${script_dir}/layers/meta-quartx
 build_dir=${script_dir}/build
 
 target_file=${script_dir}/.target
-echo $target_file
 target=$(cat "$target_file")
-echo $target
 
 if [ ! -f ${target_file} ]; then
     echo "Sorry, it does not seem that *target* is valid"
