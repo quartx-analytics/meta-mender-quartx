@@ -1,3 +1,4 @@
+
 # This really saves a lot of disk space!
 INHERIT += "rm_work"
 
@@ -9,9 +10,9 @@ INHERIT += "mender-full"
 MENDER_ARTIFACT_NAME = "release-1"
 
 # Mender storage configuration
-MENDER_STORAGE_TOTAL_SIZE_MB = "2048"
-MENDER_DATA_PART_SIZE_MB = "128"
-MENDER_BOOT_PART_SIZE_MB = "40"
+MENDER_STORAGE_TOTAL_SIZE_MB ?= "2048"
+MENDER_DATA_PART_SIZE_MB ?= "128"
+MENDER_BOOT_PART_SIZE_MB ?= "40"
 
 # Build for hosted Mender
 #

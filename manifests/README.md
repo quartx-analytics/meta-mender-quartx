@@ -17,12 +17,10 @@ $ repo sync
 
 2. Setup environment:
 ```shell
-$ . ./setup-environment <vendor/soc name>
+$ sh setup-environment <MANIFEST>
 ```
 
 3. Build:
 ```shell
 $ bitbake core-image-base
 ```
-
-The `setup-environment` script provided is a wrapper for the Yocto `oe-init-build-env` script.

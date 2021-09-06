@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <remote fetch="https://github.com/mendersoftware" name="mender"/>
+    <remote fetch="https://git.yoctoproject.org/git" name="virtual"/>
+    <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
+    <remote fetch="https://github.com/openembedded" name="oe"/>
+
+    <project name="poky" remote="yocto" revision="dunfell" path="layers/poky"/>
+    <project name="meta-openembedded" remote="oe" revision="dunfell" path="layers/meta-openembedded"/>
+    <project name="meta-mender" remote="mender" revision="dunfell" path="layers/meta-mender"/>
+    <project name="meta-virtualization" remote="virtual" revision="dunfell" path="layers/meta-virtualization"/>
+</manifest>

@@ -9,28 +9,13 @@ else
     this_script="$(pwd)/setup-environment"
 fi
 
-target=""
-targets=(
-    "raspberrypi3"
-    "raspberrypi4"
-)
+target_file = ${script_dir}/.target
+target=$(cat "$target_file")
 
-for i in ${targets[@]}
-do
-    if [[ $i == $1 ]]
-    then
-        target=$1
-        break
-    fi
-done
-
-if [ -z "${target}" ]; then
-    echo "Sorry, it does not seem that *$1* is a valid target"
+if [ ! -f ${target_file} ]; then
+    echo "Sorry, it does not seem that *target* is valid"
     echo ""
-
-    printf "Supported targets are:\n"
-    printf '%s\n' "${targets[@]}"
-    return 1
+    exit 1
 fi
 
 script_dir=$(dirname "$this_script")
@@ -43,12 +28,12 @@ build_dir=${script_dir}/build
 
 # Always update bblayers
 target_templates=${quartx_dir}/manifests/${target}/templates
-cp ${target_templates}/bblayers.conf.sample ${build_dir}/conf/bblayers.conf
+cp -f ${target_templates}/bblayers.conf.sample ${build_dir}/conf/bblayers.conf
 
 # Only append conf if not marked complete
 if [ ! -f ${build_dir}/conf/append_complete ]; then
-    # Common conf for Mender
-    cat ${quartx_dir}/manifests/common.conf.append >> ${build_dir}/conf/local.conf
+    # Common conf
+    cat ${quartx_dir}/manifests/common/conf.append >> ${build_dir}/conf/local.conf
 
     # Board specific conf
     cat ${target_templates}/local.conf.append >> ${build_dir}/conf/local.conf
