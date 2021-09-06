@@ -1,4 +1,9 @@
 
+# Caches
+SSTATE_DIR = "${TOPDIR}/../sstate-cache"
+DL_DIR = "${HOME}/../downloads"
+TMPDIR = "${HOME}/../tmp"
+
 # This really saves a lot of disk space!
 INHERIT += "rm_work"
 
