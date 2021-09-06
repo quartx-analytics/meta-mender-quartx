@@ -1,4 +1,9 @@
 
+# Caches
+SSTATE_DIR ?= "${HOME}/.yocto/sstate"
+DL_DIR ?= "${HOME}/.yocto/downloads"
+TMPDIR = "${HOME}/.yocto/tmp"
+
 # This really saves a lot of disk space!
 INHERIT += "rm_work"
 

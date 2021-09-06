@@ -58,6 +58,21 @@ if [ ! -f ${build_dir}/conf/append_complete ]; then
     # Common conf
     cat ${quartx_dir}/manifests/common/conf.append >> ${build_dir}/conf/local.conf
 
+    # Ask user for mender tenant token
+    echo 'Please specify you mender tenant token.'
+    echo ''
+    echo 'To get your tenant token:'
+    echo '   - log in to https://hosted.mender.io'
+    echo '   - click your email at the top right and then "My organization"'
+    echo '   - press the "COPY TO CLIPBOARD"'
+    echo '   - assign content of clipboard to MENDER_TENANT_TOKEN'
+    echo ''
+    read -r token
+
+    if [ -z "$token" ] ;then
+        echo "??? We need a mender tenant token. Please get one."
+    fi
+
     # Board specific conf
     cat ${target_templates}/local.conf.append >> ${build_dir}/conf/local.conf
 
