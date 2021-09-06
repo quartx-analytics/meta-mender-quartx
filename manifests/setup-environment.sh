@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 # Inspired by "probe" in oe-init-build-env
 if [ -n "$BASH_SOURCE" ]; then
