@@ -7,8 +7,7 @@ list of repositories needed for these builds.
 ### Templates and configuration fragments
 1. Download the source:
 ```shell
-$ mkdir mender-<vendor/soc name>
-$ cd mender-<vendor/soc name>
+$ mkdir yocto-quartx && cd yocto-quartx
 $ repo init \
        -u https://github.com/quartx-analytics/meta-quartx.git \
        -m manifests/raspberrypi3/scripts/manifest-raspberrypi.xml \
