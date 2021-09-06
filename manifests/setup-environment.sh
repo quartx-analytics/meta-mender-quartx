@@ -47,7 +47,7 @@ if [ ! -f "${target_file}" ]; then
 fi
 
 # Initialize bitbake
-. "${script_dir}/layers/poky/oe-init-build-env" "${build_dir}"
+. "${script_dir}/layers/poky/oe-init-build-env" "${build_dir}" > /dev/null 2>&1
 
 # Always update bblayers
 target_templates=${quartx_dir}/manifests/${target}/templates
@@ -58,10 +58,10 @@ if [ ! -f "${build_dir}/conf/append_complete" ]; then
     # Ask user for mender tenant token
     echo ''
     echo 'To get your tenant token:'
-    echo '   - log in to https://hosted.mender.io'
-    echo '   - click your email at the top right and then "My organization"'
-    echo '   - press the "COPY TO CLIPBOARD"'
-    echo '   - assign content of clipboard to MENDER_TENANT_TOKEN'
+    echo ' - log in to https://hosted.mender.io'
+    echo ' - click your email at the top right and then "My organization"'
+    echo ' - press the "COPY TO CLIPBOARD"'
+    echo ' - assign content of clipboard to MENDER_TENANT_TOKEN'
     echo ''
     echo -n 'Please specify your mender tenant token: '
     read -r token
@@ -93,3 +93,6 @@ case $app in
     echo "unknown"
     ;;
 esac
+
+echo "Build the yocto system with."
+echo " - bitbake core-image-base"
