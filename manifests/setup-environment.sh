@@ -9,7 +9,7 @@ else
     this_script="$(pwd)/setup-environment"
 fi
 
-target_file = ${script_dir}/.target
+target_file=${script_dir}/.target
 echo $target_file
 target=$(cat "$target_file")
 echo $target
