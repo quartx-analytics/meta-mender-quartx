@@ -29,7 +29,7 @@ if [ -z "${app}" ]; then
 
     printf "Supported apps are:\n"
     printf '%s\n' "${apps[@]}"
-    exit 1
+    return 1
 fi
 
 script_dir=$(dirname "$this_script")
@@ -43,7 +43,7 @@ target=$(cat "$target_file")
 if [ ! -f ${target_file} ]; then
     echo "Sorry, it does not seem that *target* is valid"
     echo ""
-    exit 1
+    return 1
 fi
 
 # Initialize bitbake
@@ -66,14 +66,11 @@ if [ ! -f ${build_dir}/conf/append_complete ]; then
 fi
 
 case $app in
-
   calllogger)
     bitbake-layers add-layer ../layers/meta-quartx/meta-quartx-calllogger
     ;;
 
   *)
     echo "unknown"
-    exit 1
     ;;
 esac
-exit 0
