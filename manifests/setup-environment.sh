@@ -75,6 +75,7 @@ if [ ! -f "${build_dir}/conf/append_complete" ]; then
     # shellcheck disable=SC2129
     cat "${quartx_dir}/manifests/common/conf.append" >> "${build_dir}/conf/local.conf"
     echo -n "MENDER_TENANT_TOKEN = \"${token}\"" >> "${build_dir}/conf/local.conf"
+    echo -e "\n" >> "${build_dir}/conf/local.conf"
 
     # Board specific conf
     cat "${target_templates}/local.conf.append" >> "${build_dir}/conf/local.conf"
