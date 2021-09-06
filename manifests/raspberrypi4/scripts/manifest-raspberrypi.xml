@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <remote fetch="https://github.com/quartx-analytics" name="quartx"/>
+    <remote fetch="https://github.com/agherzan" name="rpi"/>
+
+    <project name="meta-raspberrypi" remote="rpi" revision="dunfell" path="layers/meta-raspberrypi"/>
+    <project name="meta-quartx" remote="quartx" revision="master" path="layers/meta-quartx">
+        <copyfile src="manifests/setup-environment.sh" dest="setup-environment"/>
+        <copyfile src="manifests/raspberrypi4/target" dest=".target"/>
+    </project>
+
+    <include name="manifests/common/common.xml"/>
+</manifest>

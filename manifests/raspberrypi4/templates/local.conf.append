@@ -4,8 +4,8 @@ MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd"
 MENDER_FEATURES_DISABLE_append = " mender-grub mender-image-uefi"
 
 # Raspberry Pi3 setup
-MACHINE = "raspberrypi3"
-KERNEL_DEVICETREE = "bcm2710-rpi-3-b-plus.dtb"
+MACHINE = "raspberrypi4"
+KERNEL_DEVICETREE = "bcm2711-rpi-4-b.dtb"
 IMAGE_INSTALL_append = " kernel-image kernel-devicetree"
 IMAGE_FSTYPES_remove += " rpi-sdimg"
 RPI_USE_U_BOOT = "1"
