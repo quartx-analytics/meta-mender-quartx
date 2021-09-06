@@ -8,6 +8,11 @@ INHERIT += "mender-full"
 # Different updates must have different names
 MENDER_ARTIFACT_NAME = "release-1"
 
+# Mender storage configuration
+MENDER_STORAGE_TOTAL_SIZE_MB = "2048"
+MENDER_DATA_PART_SIZE_MB = "128"
+MENDER_BOOT_PART_SIZE_MB = "40"
+
 # Build for hosted Mender
 #
 # To get your tenant token:
@@ -18,8 +23,3 @@ MENDER_ARTIFACT_NAME = "release-1"
 #
 MENDER_SERVER_URL = "https://hosted.mender.io"
 MENDER_TENANT_TOKEN = "<TOKEN>"
-
-# Mender storage configuration
-MENDER_STORAGE_TOTAL_SIZE_MB = "2048"
-MENDER_DATA_PART_SIZE_MB = "128"
-MENDER_BOOT_PART_SIZE_MB = "40"

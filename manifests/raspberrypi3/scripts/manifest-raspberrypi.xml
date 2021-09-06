@@ -13,6 +13,6 @@
     <project name="meta-mender" remote="mender" revision="dunfell" path="layers/meta-mender"/>
     <project name="meta-virtualization" remote="virtual" revision="dunfell" path="layers/meta-virtualization"/>
     <project name="meta-quartx" remote="quartx" revision="master" path="layers/meta-quartx">
-        <copyfile dest="setup-environment" src="manifests/setup-environment.sh"/>
+        <copyfile src="manifests/setup-environment.sh" dest="setup-environment"/>
     </project>
 </manifest>

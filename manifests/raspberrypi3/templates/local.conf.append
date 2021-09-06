@@ -1,3 +1,7 @@
+# Mender features
+MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd"
+MENDER_FEATURES_DISABLE_append = " mender-grub mender-image-uefi"
+
 # Raspberry Pi3 setup
 MACHINE = "raspberrypi3"
 IMAGE_INSTALL_append = " kernel-image kernel-devicetree"
@@ -14,7 +18,3 @@ KERNEL_DEVICETREE = "bcm2710-rpi-3-b-plus.dtb"
 # More details at: https://hub.mender.io/t/updating-raspberry-pi-boot-firmware-files-using-yocto-project-and-mender/1719
 #
 # INHERIT += "rpi-update-firmware"
-
-# Mender features
-MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd"
-MENDER_FEATURES_DISABLE_append = " mender-grub mender-image-uefi"
