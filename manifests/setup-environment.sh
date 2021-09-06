@@ -24,7 +24,7 @@ do
 done
 
 if [ -z "${app}" ]; then
-    echo "Sorry, *$1* is not a valid app name"
+    echo "Sorry, \"$1\" is not a valid app name."
     echo ""
 
     printf "Supported apps are:\n"
@@ -43,7 +43,7 @@ target_file=${script_dir}/.target
 target=$(cat "$target_file")
 
 if [ ! -f "${target_file}" ]; then
-    echo "Sorry, *target* is not a valid app name"
+    echo "Sorry, \"$target\" is not a valid app name."
     echo ""
     return 1
 fi
