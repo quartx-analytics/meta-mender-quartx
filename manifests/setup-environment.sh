@@ -9,6 +9,11 @@ else
     this_script="$(pwd)/setup-environment"
 fi
 
+script_dir=$(dirname "$this_script")
+script_dir=$(readlink -f "$script_dir")
+quartx_dir=${script_dir}/layers/meta-quartx
+build_dir=${script_dir}/build
+
 target_file=${script_dir}/.target
 echo $target_file
 target=$(cat "$target_file")
@@ -19,11 +24,6 @@ if [ ! -f ${target_file} ]; then
     echo ""
     exit 1
 fi
-
-script_dir=$(dirname "$this_script")
-script_dir=$(readlink -f "$script_dir")
-quartx_dir=${script_dir}/layers/meta-quartx
-build_dir=${script_dir}/build
 
 # Initialize bitbake
 . ${script_dir}/layers/poky/oe-init-build-env ${build_dir}
