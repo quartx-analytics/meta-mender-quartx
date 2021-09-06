@@ -65,9 +65,6 @@ if [ ! -f ${build_dir}/conf/append_complete ]; then
     touch ${build_dir}/conf/append_complete
 fi
 
-# Change to build dir
-cd "${build_dir}" || exit 1
-
 case $app in
 
   calllogger)
