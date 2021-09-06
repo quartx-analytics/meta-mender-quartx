@@ -24,11 +24,13 @@ do
 done
 
 if [ -z "${app}" ]; then
-    echo "Sorry, it does not seem that *$1* is a valid app"
+    echo "Sorry, *$app* is not a valid app name"
     echo ""
 
     printf "Supported apps are:\n"
-    printf '%s\n' "${apps[@]}"
+    for i in ${apps[@]}; then
+        printf '%s\n' "${i}"
+    fi
     return 1
 fi
 
@@ -41,7 +43,7 @@ target_file=${script_dir}/.target
 target=$(cat "$target_file")
 
 if [ ! -f "${target_file}" ]; then
-    echo "Sorry, it does not seem that *target* is valid"
+    echo "Sorry, *target* is not a valid app name"
     echo ""
     return 1
 fi
@@ -94,5 +96,6 @@ case $app in
     ;;
 esac
 
+echo ""
 echo "Build the yocto system with."
 echo " - bitbake core-image-base"
