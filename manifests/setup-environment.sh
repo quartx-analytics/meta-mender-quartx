@@ -62,8 +62,7 @@ if [ ! -f "${build_dir}/conf/append_complete" ]; then
     echo 'To get your tenant token:'
     echo ' - log in to https://hosted.mender.io'
     echo ' - click your email at the top right and then "My organization"'
-    echo ' - press the "COPY TO CLIPBOARD"'
-    echo ' - assign content of clipboard to MENDER_TENANT_TOKEN'
+    echo ' - press the "COPY TO CLIPBOARD" button'
     echo ''
     echo -n 'Please specify your mender tenant token: '
     read -r token

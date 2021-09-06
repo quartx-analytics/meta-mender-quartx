@@ -1,8 +1,8 @@
 
 # Caches
-SSTATE_DIR ?= "${HOME}/.yocto/sstate"
-DL_DIR ?= "${HOME}/.yocto/downloads"
-TMPDIR = "${HOME}/.yocto/tmp"
+SSTATE_DIR ?= "${HOME}/yocto/sstate"
+DL_DIR ?= "${HOME}/yocto/downloads"
+TMPDIR = "${HOME}/yocto/tmp"
 
 # This really saves a lot of disk space!
 INHERIT += "rm_work"
@@ -22,9 +22,9 @@ MENDER_BOOT_PART_SIZE_MB ?= "40"
 # Build for hosted Mender
 #
 # To get your tenant token:
-#    - log in to https://hosted.mender.io
-#    - click your email at the top right and then "My organization"
-#    - press the "COPY TO CLIPBOARD"
-#    - assign content of clipboard to MENDER_TENANT_TOKEN
+#  - log in to https://hosted.mender.io
+#  - click your email at the top right and then "My organization"
+#  - press the "COPY TO CLIPBOARD"
+#  - assign content of clipboard to MENDER_TENANT_TOKEN
 #
 MENDER_SERVER_URL = "https://hosted.mender.io"
