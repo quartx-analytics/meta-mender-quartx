@@ -9,10 +9,33 @@ else
     this_script="$(pwd)/setup-environment"
 fi
 
+app=""
+apps=(
+    "calllogger"
+)
+
+for i in ${apps[@]}
+do
+    if [[ $i == $1 ]]
+    then
+        app=$1
+        break
+    fi
+done
+
+if [ -z "${app}" ]; then
+    echo "Sorry, it does not seem that *$1* is a valid app"
+    echo ""
+
+    printf "Supported apps are:\n"
+    printf '%s\n' "${apps[@]}"
+    return 1
+fi
+
 script_dir=$(dirname "$this_script")
 script_dir=$(readlink -f "$script_dir")
 quartx_dir=${script_dir}/layers/meta-quartx
-build_dir=${script_dir}/buildss
+build_dir=${script_dir}/build
 
 target_file=${script_dir}/.target
 target=$(cat "$target_file")
@@ -44,4 +67,16 @@ fi
 
 # Change to build dir
 cd "${build_dir}" || exit 1
+
+case $app in
+
+  calllogger)
+    bitbake-layers add-layer ../layers/meta-quartx/meta-quartx-calllogger
+    ;;
+
+  *)
+    echo "unknown"
+    exit 1
+    ;;
+esac
 exit 0
