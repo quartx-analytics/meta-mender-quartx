@@ -55,9 +55,6 @@ target_templates=${quartx_dir}/manifests/${target}/templates
 
 # Only append conf if not marked complete
 if [ ! -f ${build_dir}/conf/append_complete ]; then
-    # Common conf
-    cat ${quartx_dir}/manifests/common/conf.append >> ${build_dir}/conf/local.conf
-
     # Ask user for mender tenant token
     echo 'Please specify you mender tenant token.'
     echo ''
@@ -71,7 +68,14 @@ if [ ! -f ${build_dir}/conf/append_complete ]; then
 
     if [ -z "$token" ] ;then
         echo "??? We need a mender tenant token. Please get one."
+        return 1
     fi
+
+    # Common conf
+    cat ${quartx_dir}/manifests/common/conf.append >> ${build_dir}/conf/local.conf
+    cat <<EOF > ${build_dir}/conf/local.conf
+    MENDER_TENANT_TOKEN = "${token}"
+    EOF
 
     # Board specific conf
     cat ${target_templates}/local.conf.append >> ${build_dir}/conf/local.conf

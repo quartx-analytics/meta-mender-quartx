@@ -28,4 +28,3 @@ MENDER_BOOT_PART_SIZE_MB ?= "40"
 #    - assign content of clipboard to MENDER_TENANT_TOKEN
 #
 MENDER_SERVER_URL = "https://hosted.mender.io"
-MENDER_TENANT_TOKEN = "<TOKEN>"
