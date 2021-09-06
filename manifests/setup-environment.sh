@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Inspired by "probe" in oe-init-build-env
 if [ -n "$BASH_SOURCE" ]; then
@@ -16,9 +16,9 @@ apps=(
 
 for i in ${apps[@]}
 do
-    if [[ $i == $1 ]]
+    if [[ $i == "$1" ]]
     then
-        app=$1
+        app="$1"
         break
     fi
 done
@@ -40,30 +40,29 @@ build_dir=${script_dir}/build
 target_file=${script_dir}/.target
 target=$(cat "$target_file")
 
-if [ ! -f ${target_file} ]; then
+if [ ! -f "${target_file}" ]; then
     echo "Sorry, it does not seem that *target* is valid"
     echo ""
     return 1
 fi
 
 # Initialize bitbake
-. ${script_dir}/layers/poky/oe-init-build-env ${build_dir}
+. "${script_dir}/layers/poky/oe-init-build-env" "${build_dir}"
 
 # Always update bblayers
 target_templates=${quartx_dir}/manifests/${target}/templates
-\cp -f ${target_templates}/bblayers.conf.sample ${build_dir}/conf/bblayers.conf
+\cp -f "${target_templates}/bblayers.conf.sample" "${build_dir}/conf/bblayers.conf"
 
 # Only append conf if not marked complete
 if [ ! -f "${build_dir}/conf/append_complete" ]; then
     # Ask user for mender tenant token
-    echo 'Please specify you mender tenant token.'
-    echo ''
     echo 'To get your tenant token:'
     echo '   - log in to https://hosted.mender.io'
     echo '   - click your email at the top right and then "My organization"'
     echo '   - press the "COPY TO CLIPBOARD"'
     echo '   - assign content of clipboard to MENDER_TENANT_TOKEN'
     echo ''
+    echo 'Please specify your mender tenant token:'
     read -r token
 
     if [ -z "$token" ] ;then
@@ -72,8 +71,9 @@ if [ ! -f "${build_dir}/conf/append_complete" ]; then
     fi
 
     # Common conf
+    # shellcheck disable=SC2129
     cat "${quartx_dir}/manifests/common/conf.append" >> "${build_dir}/conf/local.conf"
-    echo "MENDER_TENANT_TOKEN = ${token}" >> "${build_dir}/conf/local.conf"
+    echo -n "MENDER_TENANT_TOKEN = ${token}" >> "${build_dir}/conf/local.conf"
 
     # Board specific conf
     cat "${target_templates}/local.conf.append" >> "${build_dir}/conf/local.conf"
