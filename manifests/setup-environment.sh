@@ -12,7 +12,7 @@ fi
 script_dir=$(dirname "$this_script")
 script_dir=$(readlink -f "$script_dir")
 quartx_dir=${script_dir}/layers/meta-quartx
-build_dir=${script_dir}/build
+build_dir=${script_dir}/buildss
 
 target_file=${script_dir}/.target
 target=$(cat "$target_file")
@@ -41,3 +41,7 @@ if [ ! -f ${build_dir}/conf/append_complete ]; then
     # Mark complete
     touch ${build_dir}/conf/append_complete
 fi
+
+# Change to build dir
+cd "${build_dir}" || exit 1
+exit 0

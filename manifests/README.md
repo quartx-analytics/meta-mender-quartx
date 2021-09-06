@@ -10,14 +10,13 @@ list of repositories needed for these builds.
 $ mkdir yocto-quartx && cd yocto-quartx
 $ repo init \
        -u https://github.com/quartx-analytics/meta-quartx.git \
-       -m manifests/raspberrypi3/scripts/manifest-raspberrypi.xml \
-       -b master
+       -m manifests/raspberrypi3/scripts/manifest-raspberrypi.xml
 $ repo sync
 ```
 
 2. Setup environment:
 ```shell
-$ sh setup-environment <MANIFEST>
+$ sh setup-environment
 ```
 
 3. Build:
