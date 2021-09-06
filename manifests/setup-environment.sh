@@ -54,7 +54,7 @@ target_templates=${quartx_dir}/manifests/${target}/templates
 \cp -f ${target_templates}/bblayers.conf.sample ${build_dir}/conf/bblayers.conf
 
 # Only append conf if not marked complete
-if [ ! -f ${build_dir}/conf/append_complete ]; then
+if [ ! -f "${build_dir}/conf/append_complete" ]; then
     # Ask user for mender tenant token
     echo 'Please specify you mender tenant token.'
     echo ''
