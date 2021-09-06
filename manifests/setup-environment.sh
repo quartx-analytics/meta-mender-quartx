@@ -29,7 +29,7 @@ if [ -z "${app}" ]; then
 
     printf "Supported apps are:\n"
     for i in ${apps[@]}; do
-        echo "${i}"
+        echo " - ${i}"
     done
     return 1
 fi
