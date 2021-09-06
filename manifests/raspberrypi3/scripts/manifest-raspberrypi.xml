@@ -2,6 +2,7 @@
 <manifest>
     <remote fetch="https://github.com/quartx-analytics" name="quartx"/>
     <remote fetch="https://github.com/mendersoftware" name="mender"/>
+    <remote fetch="https://git.yoctoproject.org/git" name="virtual"/>
     <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
     <remote fetch="https://github.com/openembedded" name="oe"/>
     <remote fetch="https://github.com/agherzan" name="rpi"/>
@@ -10,8 +11,8 @@
     <project name="meta-openembedded" remote="oe" revision="dunfell" path="layers/meta-openembedded"/>
     <project name="meta-raspberrypi" remote="rpi" revision="dunfell" path="layers/meta-raspberrypi"/>
     <project name="meta-mender" remote="mender" revision="dunfell" path="layers/meta-mender"/>
-
-    <project name="meta-mender-community" remote="quartx" revision="master" path="layers/meta-mender-community">
-        <copyfile dest="setup-environment" src="scripts/setup-environment"/>
+    <project name="meta-virtualization" remote="virtual" revision="dunfell" path="layers/meta-virtualization"/>
+    <project name="meta-quartx" remote="quartx" revision="master" path="layers/meta-quartx">
+        <copyfile dest="setup-environment" src="manifests/setup-environment"/>
     </project>
 </manifest>

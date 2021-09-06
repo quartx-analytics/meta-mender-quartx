@@ -1,0 +1,25 @@
+# This really saves a lot of disk space!
+INHERIT += "rm_work"
+
+# Full mender setup
+INHERIT += "mender-full"
+
+# The name of the disk image and Artifact that will be built
+# Different updates must have different names
+MENDER_ARTIFACT_NAME = "release-1"
+
+# Build for hosted Mender
+#
+# To get your tenant token:
+#    - log in to https://hosted.mender.io
+#    - click your email at the top right and then "My organization"
+#    - press the "COPY TO CLIPBOARD"
+#    - assign content of clipboard to MENDER_TENANT_TOKEN
+#
+MENDER_SERVER_URL = "https://hosted.mender.io"
+MENDER_TENANT_TOKEN = "<TOKEN>"
+
+# Mender storage configuration
+MENDER_STORAGE_TOTAL_SIZE_MB = "2048"
+MENDER_DATA_PART_SIZE_MB = "128"
+MENDER_BOOT_PART_SIZE_MB = "40"
