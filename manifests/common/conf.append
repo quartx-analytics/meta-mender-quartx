@@ -12,6 +12,7 @@ INHERIT += "mender-full"
 
 # Set root user
 INHERIT += "extrausers"
+EXTRA_IMAGE_FEATURES_remove = "debug-tweaks"
 EXTRA_USERS_PARAMS = "usermod -P quartx root;"
 EXTRA_IMAGE_FEATURES ?= ""
 
