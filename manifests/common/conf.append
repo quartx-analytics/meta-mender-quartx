@@ -10,6 +10,11 @@ INHERIT += "rm_work"
 # Full mender setup
 INHERIT += "mender-full"
 
+# Set root user
+INHERIT += "extrausers"
+EXTRA_USERS_PARAMS = "usermod -P quartx root;"
+EXTRA_IMAGE_FEATURES ?= ""
+
 # The name of the disk image and Artifact that will be built
 # Different updates must have different names
 MENDER_ARTIFACT_NAME = "release-1"
