@@ -49,3 +49,13 @@ This part will take a while to complete, about 4 hours on a standard computer.
 ```shell
 $ bitbake core-image-base
 ```
+
+
+## Deployment
+After bitbake finishes, it will put the build images to the Yocto project tmp folder.
+There is 2 files that we need from the tmp folder.
+```shell
+$ ~/yocto/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi3.mender
+$ ~/yocto/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi3.sdimg      # Uncompressed
+$ ~/yocto/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi3.sdimg.bz2  # Compressed
+```
