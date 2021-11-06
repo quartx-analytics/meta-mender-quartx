@@ -18,7 +18,7 @@ EXTRA_IMAGE_FEATURES ?= ""
 
 # The name of the disk image and Artifact that will be built
 # Different updates must have different names
-MENDER_ARTIFACT_NAME = "release-1"
+MENDER_ARTIFACT_NAME = "release-2"
 
 # Mender storage configuration
 MENDER_STORAGE_TOTAL_SIZE_MB ?= "2048"
